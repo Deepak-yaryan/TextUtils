@@ -45,7 +45,7 @@ export default function TextForm(props) {
   // setText("New Text");
   return (
     <>
-      <div style={{minHeight: "100vh"}}>
+      <div style={{minHeight: "100vh", paddingTop: "3rem"}}>
         <div className='container' style={{ color: props.mode === 'dark' ? 'white' : 'black'}}>
           <h2>{props.heading}</h2>
           <div className='mb-3'>
