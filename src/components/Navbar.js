@@ -7,7 +7,7 @@ export default function Navbar(props) {
     return (
         <>
             <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} px-3`}>
-                <Link className="navbar-brand" to="#"><img src={logo} alt="Text Utility" style={{width: "50px", backgroundColor: "white", borderRadius: "10px"}} /> {props.title}</Link>
+                <Link className="navbar-brand" to="#"><img src={logo} alt="Text Utility" style={{width: "50px", backgroundColor: "white", borderRadius: "10px"}} /> <b>{props.title}</b></Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -47,6 +47,6 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-    title: 'TextUtils',
+    title: 'Logo',
     // aboutText: 'About text here'
 }

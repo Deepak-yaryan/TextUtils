@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import About1 from './components/About1'
+import About from './components/About'
 import Alert from './components/Alert';
 import React, { useState } from 'react';
 
@@ -11,6 +11,7 @@ import {
   Route,
   // Link
 } from "react-router-dom";
+import Footer from './components/Footer';
 
 function App() {
   const [mode, setmode] = useState('light'); //weather dark mode is enabled or not
@@ -79,13 +80,14 @@ function App() {
         <TextForm showAlert={showAlert} heading='Enter the text to Analyze' mode={mode} />
         </div> */}
       <Router>
-        <Navbar title="Logo" mode={mode} togglemode={togglemode} colormode={colormode} />
+        <Navbar title="TextUttils" mode={mode} togglemode={togglemode} colormode={colormode} />
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About1 mode={mode} />} />
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading='TextUtils - Word Counter, Character Counter, Remove Extra Spaces' mode={mode} />} />
+            <Route exact path="/about" element={<About mode={mode} />} />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading='TextUttils - Word Counter, Character Counter, Remove Extra Spaces' mode={mode} />} />
           </Routes>
+          <Footer mode={mode} togglemode={togglemode} />
         </div>
       </Router>
     </>
