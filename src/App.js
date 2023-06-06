@@ -82,7 +82,7 @@ function App() {
       <Router>
         <Navbar title="TextUttils" mode={mode} togglemode={togglemode} colormode={colormode} />
         <Alert alert={alert} />
-        <div className="container my-3">
+        <div className="container">
           <Routes>
             <Route exact path="/about" element={<About mode={mode} />} />
             <Route exact path="/" element={<TextForm showAlert={showAlert} heading='TextUttils - Word Counter, Character Counter, Remove Extra Spaces' mode={mode} />} />
