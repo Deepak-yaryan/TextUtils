@@ -1,50 +1,40 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import logo from "../assets/logo.png"
 
 export default function Navbar(props) {
     return (
         <>
-            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
-                <a className="navbar-brand" href="#" >{props.title}</a>
+            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} px-3`}>
+                <Link className="navbar-brand" to="#"><img src={logo} alt="Text Utility" style={{width: "50px", backgroundColor: "white", borderRadius: "10px"}} /> {props.title}</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            {/* <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link> */}
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+                            {/* <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a> */}
                         </li>
                         <li className="nav-item">
-                            {/* <Link className="nav-link" to="/about">About Us</Link> */}
-                            <a className="nav-link" href="/about">About Us</a>
+                            <Link className="nav-link" to="/about">About Us</Link>
+                            {/* <a className="nav-link" href="/about">About Us</a> */}
                         </li>
-                        {/* <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li> */}
-                        {/* <li className="nav-item">
-        <a className="nav-link disabled">Disabled</a>
-      </li> */}
                     </ul>
-                    {/* <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> */}
-                    <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'} `}>
-                        <input className="form-check-input" onClick={props.togglemode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
-                    </div>
-
+                    <ul className="navbar-nav mr-0 d-flex flex-row">
+                        <li className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'} `}>
+                            <input className="form-check-input" onClick={props.togglemode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+                        </li>
+                        <li className="d-flex mx-2">
+                            <div className="bg-primary rounded mx-2" onClick={() => { props.colormode('primary') }} style={{ height: '25px', width: '25px', cursor: 'pointer' }}></div>
+                            <div className="bg-danger rounded mx-2" onClick={() => { props.colormode('danger') }} style={{ height: '25px', width: '25px', cursor: 'pointer' }}></div>
+                            <div className="bg-success rounded mx-2" onClick={() => { props.colormode('success') }} style={{ height: '25px', width: '25px', cursor: 'pointer' }}></div>
+                            <div className="bg-warning rounded mx-2" onClick={() => { props.colormode('warning') }} style={{ height: '25px', width: '25px', cursor: 'pointer' }}></div>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </>
@@ -57,6 +47,6 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-    title: 'Logo',
+    title: 'TextUtils',
     // aboutText: 'About text here'
 }
